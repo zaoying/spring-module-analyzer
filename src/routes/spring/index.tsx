@@ -1,5 +1,4 @@
 import { $, component$, useStore, useStyles$ } from "@builder.io/qwik";
-import type { ECOption } from "../../components/charts/common";
 import type { Bean } from "../../components/spring/bean";
 import Chart from "../../components/charts/common";
 import styles from './index.css?inline';
@@ -9,7 +8,7 @@ export default component$(() => {
     useStyles$(styles)
     const beans = useStore<{ value: {} }>({ value: {} })
     const fields = useStore<Bean>({})
-    const option = useStore<{ value: ECOption }>({ value: {} })
+    const option = useStore<{ value: any }>({ value: {} })
     return <div>
         <div class="form">
             <div class="row">

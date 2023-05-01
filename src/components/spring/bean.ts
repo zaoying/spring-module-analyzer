@@ -1,5 +1,3 @@
-import type { ECOption } from "../charts/common";
-
 export interface Bean {
     alias?: string,
     scope?: string,
@@ -8,7 +6,7 @@ export interface Bean {
     dependencies?: []
 }
 
-function buildOption(legends: string[], data: any[], categories: any[], edges: any[]): ECOption{
+function buildOption(legends: string[], data: any[], categories: any[], edges: any[]): echarts.EChartsOption{
     return {
         legend: {
             data: legends
@@ -41,20 +39,20 @@ export function filterBeans(contexts: Object, fields: Bean) {
         categories.push({ name: svc, keyword: {} })
         const beans: Object = ctx.beans
         Object.entries(beans).forEach(([source, bean]) => {
-            if (fields.alias) {
+            if (fields.alias && bean.aliases) {
                 const keyword = fields.alias
                 const matched = bean.aliases.filter((item: string) => item.startsWith(keyword))
                 if (!matched) {
                     return
                 }
             }
-            if (fields.type) {
+            if (fields.type && bean.type) {
                 const keyword = fields.type
                 if (!bean.type.startsWith(keyword)) {
                     return
                 }
             }
-            if (fields.resource) {
+            if (fields.resource && bean.resource) {
                 const keyword = fields.resource
                 if (!bean.resource.startsWith(keyword)) {
                     return
@@ -75,7 +73,7 @@ export function filterBeans(contexts: Object, fields: Bean) {
     return buildOption(legends, data, categories, edges)
 }
 
-export default function parseFile(event: any, beans: { value: any }, option: {value: ECOption}, fields: Bean) {
+export default function parseFile(event: any, beans: { value: any }, option: {value: any}, fields: Bean) {
     const [file] = event.target.files;
     const reader = new FileReader();
     reader.addEventListener("load", () => {

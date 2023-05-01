@@ -1,6 +1,6 @@
 import { component$, useStylesScoped$ } from '@builder.io/qwik';
-import { QwikLogo } from '../icons/qwik';
 import styles from './header.css?inline';
+import { SpringLogo } from '../icons/spring';
 
 export default component$(() => {
   useStylesScoped$(styles);
@@ -9,25 +9,11 @@ export default component$(() => {
     <header>
       <div class="logo">
         <a href="https://qwik.builder.io/" target="_blank" title="qwik">
-          <QwikLogo />
+          <SpringLogo width='36' height='36' verticalAlign='middle'/>
+          <h4 style={{display: 'inline-block', margin: "0 0.5em", verticalAlign: 'middle'}}>Spring Module Analyzer</h4>
         </a>
       </div>
       <ul>
-        <li>
-          <a href="https://qwik.builder.io/docs/components/overview/" target="_blank">
-            Docs
-          </a>
-        </li>
-        <li>
-          <a href="https://qwik.builder.io/examples/introduction/hello-world/" target="_blank">
-            Examples
-          </a>
-        </li>
-        <li>
-          <a href="https://qwik.builder.io/tutorial/welcome/overview/" target="_blank">
-            Tutorials
-          </a>
-        </li>
       </ul>
     </header>
   );

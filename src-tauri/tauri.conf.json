@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
-    "beforeBuildCommand": "yarn build",
+    "beforeBuildCommand": "yarn build.server",
     "beforeDevCommand": "yarn start",
     "devPath": "http://localhost:5173/",
     "distDir": "../dist"
@@ -58,7 +58,7 @@
         "fullscreen": false,
         "height": 900,
         "resizable": true,
-        "title": "Spring Module Analzyer",
+        "title": "Spring Module Analyzer",
         "width": 1200
       }
     ]
