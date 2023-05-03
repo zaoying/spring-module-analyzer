@@ -1,5 +1,6 @@
 {
-  "name": "my-qwik-basic-starter",
+  "name": "spring-module-analyzer",
+  "version": "0.0.1",
   "description": "App with Routing built-in (recommended)",
   "engines": {
     "node": ">=15.0.0"
