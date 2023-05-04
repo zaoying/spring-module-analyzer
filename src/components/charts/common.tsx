@@ -18,5 +18,5 @@ export default component$<{ option: echarts.EChartsOption }>((props) => {
             status.value = true
         }
     })
-    return <div ref={outputRef} style={{ height: "450px" }}></div>;
+    return <div ref={outputRef} style={{ height: "640px" }}></div>;
 });

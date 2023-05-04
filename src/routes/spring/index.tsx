@@ -11,18 +11,18 @@ export default component$(() => {
     const option = useStore<{ value: any }>({ value: {} })
     return <div>
         <div class="form">
-            <div class="row">
-                <label for="file">JSON文件</label>
-                <input type="file" id="file" placeholder="选择JSON文件" accept="application/json"
-                    onChange$={$((event: any) => {parseFile(event, beans, option, fields)})} />
-            </div>
             <div class="three row">
+                <div class="field">
+                    <label for="file">JSON文件</label>
+                    <input type="file" id="file" placeholder="选择JSON文件" accept="application/json"
+                        onChange$={$((event: any) => {parseFile(event, beans, option, fields)})} />
+                </div>
                 <div class="field">
                     <label for="alias">别名</label>
                     <input type="text" id="alias" name="alias" onInput$={$((e: any) => fields.alias = e.target.value)}/>
                 </div>
                 <div class="field">
-                    <label for="type">类型</label>
+                    <label for="type">类名</label>
                     <input type="text" id="type" name="type"  onInput$={$((e: any) => fields.type = e.target.value)}/>
                 </div>
                 <div class="field">

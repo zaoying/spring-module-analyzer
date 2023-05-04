@@ -56,10 +56,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 900,
+        "height": 810,
         "resizable": true,
         "title": "Spring Module Analyzer",
-        "width": 1200
+        "width": 1280
       }
     ]
   }
