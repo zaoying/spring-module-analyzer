@@ -1,7 +1,7 @@
 {
   "name": "spring-module-analyzer",
-  "version": "0.0.1",
-  "description": "App with Routing built-in (recommended)",
+  "version": "0.0.2",
+  "description": "Spring Module Analyzer",
   "engines": {
     "node": ">=15.0.0"
   },
