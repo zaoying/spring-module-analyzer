@@ -10,6 +10,7 @@ export default component$(() => {
     const fields = useStore<Bean>({})
     const option = useStore<{ value: any }>({ value: {} })
     return <div>
+        <h2 class="title">依赖分析</h2>
         <div class="form">
             <div class="three row">
                 <div class="field">
