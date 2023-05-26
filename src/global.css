@@ -115,9 +115,9 @@ footer a:hover {
 }
 
 .title {
-  display: 'inline-block';
-  margin: "0 0.5em";
-  vertical-align: 'middle';
+  display: inline-block;
+  margin: 0 0.5em;
+  vertical-align: middle;
 }
 
 
@@ -148,14 +148,73 @@ a.button {
   border-radius: 5rem;
 }
 
+.purple.title {
+  text-shadow: 1px 1px 4px #ac7ff4;
+}
+
+.radio.buttons > * {
+  border-radius: 0;
+  margin: 0;
+  box-shadow: 0px 0px 1px 2px gray;
+}
+
+.radio.buttons > *:first-child {
+  border-top-left-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+}
+
+.radio.buttons > *:last-child {
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+}
+
 .primary.button {
   color: white;
   background-color: #006ce9;
   box-shadow: 0px 0px 1px 2px #006ce9;
 }
 
+.active.primary.button {
+  color: #006ce9;
+  border-color: #006ce9;
+  background-color: white;
+}
+
 .second.button {
   color: white;
   background-color: #18b6f6;
-  box-shadow: 0px 0px 1px 2px #18b6f6;
+  /* box-shadow: 0px 0px 1px 2px #18b6f6; */
+}
+
+.file.button label {
+  cursor: pointer;
+}
+
+.file.button input[type=file] {
+  display: none;
+}
+
+.active.second.button {
+  color: #18b6f6;
+  border: #18b6f6;
+  background-color: white;
+}
+
+.dimmer:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: overlay;
+}
+
+.tabs .content {
+  height: 480px;
+  background-size: cover;
+  margin: 2rem 0;
+}
+
+.beans.content {
+  background-image: url('../images/beans.png')
+}
+
+.trace.content {
+  background-image: url('../images/trace.png')
 }

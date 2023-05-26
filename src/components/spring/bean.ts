@@ -73,16 +73,14 @@ export function filterBeans(contexts: Object, fields: Bean) {
     return buildOption(legends, data, categories, edges)
 }
 
-export default function parseFile(event: any, beans: { value: any }, option: {value: any}, fields: Bean) {
+export default function readFile(event: any, callback: (result: string) => void) {
     const [file] = event.target.files;
     const reader = new FileReader();
     reader.addEventListener("load", () => {
         if (reader.result == null || reader.result instanceof ArrayBuffer) {
             console.info(reader.result)
         } else {
-            const { contexts } = JSON.parse(reader.result);
-            beans.value = contexts
-            option.value = filterBeans(contexts, fields)
+            callback.call({}, reader.result)
         }
 
     });

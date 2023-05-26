@@ -1,8 +1,10 @@
-import { component$ } from '@builder.io/qwik';
+import { Signal, component$, createContextId, useContextProvider, useSignal } from '@builder.io/qwik';
 import { QwikCityProvider, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import { RouterHead } from './components/router-head/router-head';
 
 import './global.css';
+
+export const FileContent = createContextId<Signal<string>>('FileContent');
 
 export default component$(() => {
   /**
@@ -11,6 +13,8 @@ export default component$(() => {
    *
    * Dont remove the `<head>` and `<body>` elements.
    */
+  const content = useSignal('')
+  useContextProvider(FileContent, content)
 
   return (
     <QwikCityProvider>
