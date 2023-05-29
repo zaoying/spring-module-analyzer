@@ -1,32 +1,43 @@
-import { component$, useContext, useStore } from "@builder.io/qwik";
-import Chart from "../../components/charts/common";
+import { component$, useContext, useStore, $, useStyles$ } from "@builder.io/qwik";
+import Chart from "~/components/charts/common";
 import { FileContent } from "~/root";
+import { Filter, Trace, filterRecord } from "./trace";
+import styles from './index.css?inline';
 
 export default component$(() => {
-    const fileContent = useContext(FileContent)
+    useStyles$(styles)
+    const fields = useStore<Filter>({})
     const option = useStore<{ value: any }>({ value: {} })
+    let records = useStore<Trace[]>([])
+    const fileContent = useContext(FileContent)
+    if (fileContent.value) {
+        const lines = fileContent.value.split('\n')
+        records = lines.map((line: string) => {
+            const segments = line.split(',')
+            return segments.length == 3 ? {
+                from: segments[0],
+                to: segments[1],
+                duration: Number.parseInt(segments[2])
+            } : {from: "", to: "", duration: 0}
+        })
+        option.value = filterRecord(records, fields)
+    }
+    
     return <div>
         <h2 class="title">聚类分析</h2>
         <div class="form">
             <div class="three row">
                 <div class="field">
-                    <label for="alias">别名</label>
-                    <input type="text" id="alias" name="alias"/>
+                    <label for="from">起点</label>
+                    <input type="text" id="from" name="from" onInput$={$((e: any) => fields.from = e.target.value)}/>
                 </div>
                 <div class="field">
-                    <label for="type">类名</label>
-                    <input type="text" id="type" name="type"/>
+                    <label for="to">终点</label>
+                    <input type="text" id="to" name="to" onInput$={$((e: any) => fields.to = e.target.value)}/>
                 </div>
                 <div class="field">
-                    <label for="resource">源文件</label>
-                    <input type="text" id="resource" name="resource"/>
+                    <input type="button" value="过滤" onClick$={$(() => {option.value = filterRecord(records, fields)})}/>
                 </div>
-                <div class="field">
-                    <input type="button" value="过滤"/>
-                </div>
-            </div>
-            <div>
-                {fileContent.value}
             </div>
         </div>
         <Chart option={option.value}></Chart>

@@ -1,6 +1,6 @@
 import { $, component$, useContext, useStore, useStyles$ } from "@builder.io/qwik";
-import type { Bean } from "../../components/spring/bean";
-import Chart from "../../components/charts/common";
+import type { Bean } from "~/components/spring/bean";
+import Chart from "~/components/charts/common";
 import styles from './index.css?inline';
 import { filterBeans } from "~/components/spring/bean";
 import { FileContent } from "~/root";
@@ -13,9 +13,11 @@ export default component$(() => {
 
     const fileContent = useContext(FileContent)
     if (fileContent.value) {
-        const { contexts } = JSON.parse(fileContent.value);
-        beans.value = contexts
-        option.value = filterBeans(contexts, fields)
+        const obj: {contexts: any} = JSON.parse(fileContent.value);
+        if (obj.contexts) {
+            beans.value = obj.contexts
+            option.value = filterBeans(obj.contexts, fields)
+        }
     }
     return <div>
         <h2 class="title">依赖分析</h2>

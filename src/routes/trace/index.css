@@ -1,0 +1,8 @@
+.form .field {
+    display: inline-block;
+    margin: 0.2em;
+}
+
+.field > label {
+    margin: 0.2em;
+}
