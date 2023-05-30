@@ -1,4 +1,4 @@
-import { component$, useContext, useStore, $, useStyles$ } from "@builder.io/qwik";
+import { component$, useContext, useStore, $, useStyles$, useVisibleTask$ } from "@builder.io/qwik";
 import Chart from "~/components/charts/common";
 import { FileContent } from "~/root";
 import { Filter, Trace, filterRecord } from "./trace";
@@ -8,20 +8,23 @@ export default component$(() => {
     useStyles$(styles)
     const fields = useStore<Filter>({})
     const option = useStore<{ value: any }>({ value: {} })
-    let records = useStore<Trace[]>([])
+    const records = useStore<{value: Trace[]}>({value: []})
     const fileContent = useContext(FileContent)
-    if (fileContent.value) {
-        const lines = fileContent.value.split('\n')
-        records = lines.map((line: string) => {
-            const segments = line.split(',')
-            return segments.length == 3 ? {
-                from: segments[0],
-                to: segments[1],
-                duration: Number.parseInt(segments[2])
-            } : {from: "", to: "", duration: 0}
-        })
-        option.value = filterRecord(records, fields)
-    }
+    useVisibleTask$(()=>{
+        if (fileContent.value) {
+            const lines = fileContent.value.split('\n')
+            records.value = lines.map((line: string) => {
+                const segments = line.split(',')
+                return segments.length == 3 ? {
+                    from: segments[0],
+                    to: segments[1],
+                    duration: Number.parseInt(segments[2])
+                } : {from: "", to: "", duration: 0}
+            })
+            option.value = filterRecord(records.value, fields)
+        }
+    })
+    
     
     return <div>
         <h2 class="title">聚类分析</h2>
@@ -36,7 +39,7 @@ export default component$(() => {
                     <input type="text" id="to" name="to" onInput$={$((e: any) => fields.to = e.target.value)}/>
                 </div>
                 <div class="field">
-                    <input type="button" value="过滤" onClick$={$(() => {option.value = filterRecord(records, fields)})}/>
+                    <input type="button" value="过滤" onClick$={$(() => {option.value = filterRecord(records.value, fields)})}/>
                 </div>
             </div>
         </div>
