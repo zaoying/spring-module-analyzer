@@ -13,7 +13,7 @@ export default component$(() => {
     useVisibleTask$(()=>{
         if (fileContent.value) {
             const lines = fileContent.value.split('\n')
-            records.value = lines.map((line: string) => {
+            records.value = lines.filter(line=>line != "").map((line: string) => {
                 const segments = line.split(',')
                 return segments.length == 3 ? {
                     from: segments[0],

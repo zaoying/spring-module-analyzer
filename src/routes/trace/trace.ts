@@ -17,7 +17,7 @@ export function filterRecord(records: Trace[], fields: Filter) {
     categories.push({name: "trace", keyword: ""})
 
     const entities = new Map<string, { id: number, val: number }>();
-    const durations = new Map<{from: number, to: number}, number[]>();
+    const durations = new Map<string, number[]>();
     let edges = new Array<{ source: number, target: number }>();
 
     records.forEach(record => {
@@ -36,7 +36,7 @@ export function filterRecord(records: Trace[], fields: Filter) {
 
         edges.push({source: from.id, target: to.id})
 
-        const key = {from: from.id, to: to.id}
+        const key = `${from.id}->${to.id}`
         const duration = durations.get(key) ?? [];
         durations.set(key, [...duration, record.duration])
     })
@@ -47,7 +47,7 @@ export function filterRecord(records: Trace[], fields: Filter) {
     }
 
     edges = edges.filter(({source, target}) => {
-        const duration = durations.get({from: source, to: target}) ?? []
+        const duration = durations.get(`${source}->${target}`) ?? []
         let result
         switch (fields.method) {
             case 'count':
