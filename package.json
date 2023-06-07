@@ -1,6 +1,6 @@
 {
   "name": "spring-module-analyzer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Spring Module Analyzer",
   "engines": {
     "node": ">=15.0.0"
