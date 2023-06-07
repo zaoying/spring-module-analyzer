@@ -89,10 +89,6 @@ function buildOption(legends: string[], data: any[], categories: any[], edges: a
               position: 'right',
               formatter: '{b}'
             },
-            scaleLimit: {
-              min: 0.4,
-              max: 2
-            },
             force: { "edgeLength": 50, "repulsion": 400, "gravity": 0.1 },
             roam: true,
             draggable: true,

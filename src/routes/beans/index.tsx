@@ -41,9 +41,6 @@ export default component$(() => {
                     <input type="button" value="过滤" onClick$={$(() => {option.value = filterBeans(beans.value, fields)})}/>
                 </div>
             </div>
-            <div>
-                {fileContent.value}
-            </div>
         </div>
         <Chart option={option.value}></Chart>
     </div>

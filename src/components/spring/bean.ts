@@ -16,8 +16,9 @@ function buildOption(legends: string[], data: any[], categories: any[], edges: a
             layout: "force",
             animation: true,
             label: {
-                position: "right",
-                formatter: "{b}"
+              show: true,
+              position: 'right',
+              formatter: '{b}'
             },
             force: { "edgeLength": 10, "repulsion": 80, "gravity": 0.1 },
             roam: true,
