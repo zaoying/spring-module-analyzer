@@ -79,7 +79,7 @@ export default function readFile(event: any, callback: (result: string) => void)
     const reader = new FileReader();
     reader.addEventListener("load", () => {
         if (reader.result == null || reader.result instanceof ArrayBuffer) {
-            console.info(reader.result)
+            console.error(reader.result)
         } else {
             callback.call({}, reader.result)
         }

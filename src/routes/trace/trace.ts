@@ -71,7 +71,6 @@ export function filterRecord(records: Trace[], fields: Filter) {
         return fields.range.min <= result && result <= fields.range.max
     })
     const option = buildOption(legends, data, categories, edges)
-    console.info(option)
     return option
 }
 

@@ -123,7 +123,7 @@ footer a:hover {
 
 
 .frame {
-  max-width: 760px;
+  min-width: 760px;
   min-height: 450px;
   margin: 1rem;
   padding: 2rem;
