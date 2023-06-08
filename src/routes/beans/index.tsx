@@ -22,7 +22,12 @@ export default component$(() => {
         }
     })
     return <div>
-        <h2 class="title">依赖分析</h2>
+        <div class="banner">
+            <a class="small logo" onClick$={$((e: any) => history.back())}>
+                <img src="../images/back.svg"></img>
+            </a>
+            <h2 class="title">依赖分析</h2>
+        </div>
         <div class="form">
             <div class="three row">
                 <div class="field">

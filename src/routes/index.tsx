@@ -21,19 +21,19 @@ export default component$(() => {
   })
   return (
     <div class="center">
-      <div class="logo">
+      <div class="banner">
           <SpringLogo width='48' height='48' verticalAlign='top'/>
           <h1 class="purple title">Spring Module Analyzer</h1>
       </div>
       <div class="frame">
         <div class="radio buttons">
           <a class={`${isActive('beans')} primary button`} onClick$={() => toggle('beans')}>依赖分析</a>
-          <a class={`${isActive('trace')} second button`}  onClick$={() => toggle('trace')}>聚类分析</a>
+          <a class={`${isActive('trace')} primary button`}  onClick$={() => toggle('trace')}>链路分析</a>
         </div>
         <div class="tabs">
           <div class={`${activeTab.value} dimmer content`}>
-            <div class="file primary button" style={{marginTop: "230px"}} >
-              <label for="file">打开文件</label>
+            <div class="action file primary button" style={{marginTop: "230px"}} >
+              <label for="file">开始</label>
               <input type="file" id='file' title="选择文件" accept={`${file.value}`}
                  onChange$={$((event: any) => {readFile(event, callback)})} />
             </div>
