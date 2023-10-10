@@ -2,16 +2,16 @@
 # yarn lockfile v1
 
 
-"@builder.io/qwik-city@0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@builder.io/qwik-city/-/qwik-city-0.5.2.tgz#016d75c5ef5c47a10d3a0008eb1c576c114af769"
-  integrity sha512-ItpQw+A4nK7Uh+Ypdx+LGqPlOzoIGWg9VgnqWCKpAfJaLnD4ffvSPrgHKQx/DdsDFFl7nBMMq4ddUQSL7xp0Yw==
+"@builder.io/qwik-city@0.104.0":
+  version "0.104.0"
+  resolved "https://registry.yarnpkg.com/@builder.io/qwik-city/-/qwik-city-0.104.0.tgz#6951099f524d6da2acd7d8ba8ce0235c1228f64f"
+  integrity sha512-5I3+c1KwmYZf+cAqvdjpydypMqpe6Gd68OCUr969F0bZOGSdZ5iCGKAgWyk2BXiaUdkMawPlTHbsNAzg62pDoA==
   dependencies:
     "@mdx-js/mdx" "2.3.0"
-    "@types/mdx" "2.0.3"
+    "@types/mdx" "2.0.4"
     source-map "0.7.4"
     vfile "5.3.7"
-    zod "^3.20.6"
+    zod "^3.21.4"
 
 "@builder.io/qwik@0.21.0":
   version "0.21.0"
@@ -366,10 +366,10 @@
   dependencies:
     "@types/unist" "*"
 
-"@types/mdx@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@types/mdx/-/mdx-2.0.3.tgz#43fd32414f17fcbeced3578109a6edd877a2d96e"
-  integrity sha512-IgHxcT3RC8LzFLhKwP3gbMPeaK7BM9eBH46OdapPA7yvuIUJ8H6zHZV53J8hGZcTSnt95jANt+rTBNUUc22ACQ==
+"@types/mdx@2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@types/mdx/-/mdx-2.0.4.tgz#d1cad61ccc803b3c248c3d9990a2a6880bef537f"
+  integrity sha512-qCYrNdpKwN6YO6FVnx+ulfqifKlE3lQGsNhvDaW9Oxzyob/cRLBJWow8GHBBD4NxQ7BVvtsATgLsX0vZAWmtrg==
 
 "@types/mdx@^2.0.0":
   version "2.0.5"
@@ -2408,7 +2408,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zod@^3.20.6:
+zod@^3.21.4:
   version "3.22.4"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.22.4.tgz#f31c3a9386f61b1f228af56faa9255e845cf3fff"
   integrity sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==
