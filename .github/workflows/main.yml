@@ -2,9 +2,9 @@ name: 'publish'
 
 on: 
   push:
-    branches: [ "main" ]
+    branches: [ "product" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "product" ]
 
 jobs:
   create-release:
